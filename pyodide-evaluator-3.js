@@ -28258,8 +28258,14 @@ if missing:
 	            await pyodide.runPythonAsync(installerCode);
 	        }
 	        // --- Execute the (possibly rewritten) code ---
-	        const output = await pyodide.runPythonAsync(code);
-	        this.conductor.sendOutput(output);
+	        try {
+	            const output = await pyodide.runPythonAsync(code);
+	            this.conductor.sendOutput(output);
+	        }
+	        catch (err) {
+	            const message = err instanceof Error ? err.message : String(err);
+	            this.conductor.sendError(new o$1(message));
+	        }
 	    }
 	}
 	class ChapterPyodideEvaluator extends PyodideEvaluator {
