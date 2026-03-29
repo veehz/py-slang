@@ -1,0 +1,50 @@
+import { WasmInstruction, WasmNumeric, WasmRaw } from "@sourceacademy/wasm-util";
+import { ExprNS, StmtNS } from "../ast-types";
+interface BuilderVisitor<S, E> extends StmtNS.Visitor<S>, ExprNS.Visitor<E> {
+    visit(stmt: StmtNS.Stmt): S;
+    visit(stmt: ExprNS.Expr): E;
+    visit(stmt: StmtNS.Stmt | ExprNS.Expr): S | E;
+}
+export declare class BuilderGenerator implements BuilderVisitor<WasmInstruction, WasmNumeric> {
+    private strings;
+    private heapPointer;
+    private environment;
+    private userFunctions;
+    private getLexAddress;
+    private collectDeclarations;
+    visit(stmt: StmtNS.Stmt): WasmInstruction;
+    visit(stmt: ExprNS.Expr): WasmNumeric;
+    visitFileInputStmt(stmt: StmtNS.FileInput): WasmInstruction;
+    visitSimpleExprStmt(stmt: StmtNS.SimpleExpr): WasmInstruction;
+    visitGroupingExpr(expr: ExprNS.Grouping): WasmNumeric;
+    visitBinaryExpr(expr: ExprNS.Binary): WasmNumeric;
+    visitCompareExpr(expr: ExprNS.Compare): WasmNumeric;
+    visitUnaryExpr(expr: ExprNS.Unary): WasmNumeric;
+    visitBoolOpExpr(expr: ExprNS.BoolOp): WasmNumeric;
+    visitTernaryExpr(expr: ExprNS.Ternary): WasmNumeric;
+    visitNoneExpr(_expr: ExprNS.None): WasmNumeric;
+    visitBigIntLiteralExpr(expr: ExprNS.BigIntLiteral): WasmNumeric;
+    visitLiteralExpr(expr: ExprNS.Literal): WasmNumeric;
+    visitComplexExpr(expr: ExprNS.Complex): WasmNumeric;
+    visitAssignStmt(stmt: StmtNS.Assign): WasmInstruction;
+    visitVariableExpr(expr: ExprNS.Variable): WasmNumeric;
+    visitFunctionDefStmt(stmt: StmtNS.FunctionDef): WasmInstruction;
+    visitLambdaExpr(expr: ExprNS.Lambda): WasmNumeric;
+    visitCallExpr(expr: ExprNS.Call): WasmRaw;
+    visitReturnStmt(stmt: StmtNS.Return): WasmInstruction;
+    visitNonLocalStmt(stmt: StmtNS.NonLocal): WasmInstruction;
+    visitIfStmt(stmt: StmtNS.If): WasmInstruction;
+    visitPassStmt(_stmt: StmtNS.Pass): WasmInstruction;
+    visitMultiLambdaExpr(_expr: ExprNS.MultiLambda): WasmNumeric;
+    visitAnnAssignStmt(_stmt: StmtNS.AnnAssign): WasmInstruction;
+    visitBreakStmt(_stmt: StmtNS.Break): WasmInstruction;
+    visitContinueStmt(_stmt: StmtNS.Continue): WasmInstruction;
+    visitFromImportStmt(_stmt: StmtNS.FromImport): WasmInstruction;
+    visitGlobalStmt(_stmt: StmtNS.Global): WasmInstruction;
+    visitAssertStmt(_stmt: StmtNS.Assert): WasmInstruction;
+    visitWhileStmt(_stmt: StmtNS.While): WasmInstruction;
+    visitForStmt(_stmt: StmtNS.For): WasmInstruction;
+    visitListExpr(_expr: ExprNS.List): WasmNumeric;
+    visitSubscriptExpr(_expr: ExprNS.Subscript): WasmNumeric;
+}
+export {};

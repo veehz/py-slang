@@ -1,0 +1,14 @@
+import { TokenType } from "../tokens";
+import { Environment } from "./environment";
+import { AppInstr, AssmtInstr, BinOpInstr, BoolOpInstr, BranchInstr, EndOfFunctionBodyInstr, EnvInstr, Instr, Node, UnOpInstr } from "./types";
+export declare const popInstr: (srcNode: Node) => Instr;
+export declare const assmtInstr: (symbol: string, constant: boolean, declaration: boolean, srcNode: Node) => AssmtInstr;
+export declare const appInstr: (numOfArgs: number, srcNode: Node) => AppInstr;
+export declare const envInstr: (env: Environment, srcNode: Node) => EnvInstr;
+export declare const markerInstr: (srcNode: Node) => Instr;
+export declare const binOpInstr: (symbol: TokenType, srcNode: Node) => BinOpInstr;
+export declare const resetInstr: (srcNode: Node) => Instr;
+export declare const branchInstr: (consequent: Node, alternate: Node | null | undefined, srcNode: Node) => BranchInstr;
+export declare const unOpInstr: (symbol: TokenType, srcNode: Node) => UnOpInstr;
+export declare const boolOpInstr: (symbol: TokenType, srcNode: Node) => BoolOpInstr;
+export declare const endOfFunctionBodyInstr: (srcNode: Node) => EndOfFunctionBodyInstr;
