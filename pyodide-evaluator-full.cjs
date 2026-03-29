@@ -24454,7 +24454,7 @@ const ANALYZE_IMPORTS_PY = `
 import ast as _ast, json as _json
 
 def _sa_analyze_imports(source):
-    """Parse source and return JSON array of from-import info."""
+    """Parse source and return JSON array of import info (both 'import' and 'from ... import')."""
     try:
         tree = _ast.parse(source)
     except SyntaxError:
@@ -24463,6 +24463,7 @@ def _sa_analyze_imports(source):
     for node in _ast.walk(tree):
         if isinstance(node, _ast.ImportFrom) and node.module:
             result.append({
+                "type": "from",
                 "module": node.module,
                 "names": [
                     {"name": a.name, "alias": a.asname}
@@ -24470,6 +24471,14 @@ def _sa_analyze_imports(source):
                 ],
                 "line": node.lineno,
             })
+        elif isinstance(node, _ast.Import):
+            for a in node.names:
+                result.append({
+                    "type": "import",
+                    "module": a.name,
+                    "names": [{"name": a.name, "alias": a.asname}],
+                    "line": node.lineno,
+                })
     return _json.dumps(result)
 `;
 let helperLoaded = false;
@@ -24513,13 +24522,31 @@ async function getNonTorchImportRoots(pyodide, source) {
 /**
  * Generates Python assignment code that replaces a torch import statement.
  *
- * Example:
+ * Examples:
+ *   import torch           →  torch = __sa_import_torch
+ *   import torch as t      →  t = __sa_import_torch
+ *   import torch.nn        →  torch = __sa_import_torch
  *   from torch.nn import Linear as L, Conv2d
- *   →  L = __sa_import_torch.nn.Linear
- *      Conv2d = __sa_import_torch.nn.Conv2d
+ *     →  L = __sa_import_torch.nn.Linear
+ *        Conv2d = __sa_import_torch.nn.Conv2d
  */
 function generateReplacement(imp) {
     const injected = "__sa_import_torch";
+    if (imp.type === "import") {
+        // `import torch` or `import torch as t` or `import torch.nn`
+        const alias = imp.names[0].alias;
+        if (alias) {
+            // import torch as t  →  t = __sa_import_torch
+            // import torch.nn as nn  →  nn = __sa_import_torch.nn
+            const subparts = imp.module.split(".").slice(1);
+            const rhs = subparts.length > 0 ? `${injected}.${subparts.join(".")}` : injected;
+            return `${alias} = ${rhs}`;
+        }
+        // import torch  →  torch = __sa_import_torch
+        // import torch.nn  →  torch = __sa_import_torch  (Python binds the top-level name)
+        return `torch = ${injected}`;
+    }
+    // from torch.nn import Linear as L, Conv2d
     const subparts = imp.module.split(".").slice(1);
     const base = subparts.length > 0 ? `${injected}.${subparts.join(".")}` : injected;
     return imp.names

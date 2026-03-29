@@ -8,6 +8,8 @@
  */
 import type { PyodideInterface } from "pyodide";
 export interface TorchImportInfo {
+    /** "import" for bare `import torch`, "from" for `from torch import ...` */
+    type: "import" | "from";
     /** Full module path, e.g. "torch" or "torch.nn" */
     module: string;
     /** Imported names with optional aliases */

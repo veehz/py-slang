@@ -1,1 +1,110 @@
-[{"id":"source1","name":"Source 1","evaluators":[{"id":"source1Default","name":"Default","path":"https://source-academy.github.io/js-slang-lean/evaluator1.js","capabilities":[]}]},{"id":"source2","name":"Source 2","evaluators":[{"id":"source2Default","name":"Default","path":"https://source-academy.github.io/js-slang-lean/evaluator2.js","capabilities":[]}]},{"id":"source3","name":"Source 3","evaluators":[{"id":"source3Default","name":"Default","path":"https://source-academy.github.io/js-slang-lean/evaluator3.js","capabilities":[]}]},{"id":"source4","name":"Source 4","evaluators":[{"id":"source4Default","name":"Default","path":"https://source-academy.github.io/js-slang-lean/evaluator4.js","capabilities":[]}]},{"id":"pythonFull","name":"Python Full","evaluators":[{"id":"pythonFullDefault","name":"Default","path":"https://veehz.github.io/py-slang/pyodide-evaluator-full.cjs","capabilities":[]}]},{"id":"python1","name":"Python 1","evaluators":[{"id":"python1Default","name":"Default","path":"https://veehz.github.io/py-slang/pyodide-evaluator-1.cjs","capabilities":[]}]},{"id":"python2","name":"Python 2","evaluators":[{"id":"python2Default","name":"Default","path":"https://veehz.github.io/py-slang/pyodide-evaluator-2.cjs","capabilities":[]}]},{"id":"python3","name":"Python 3","evaluators":[{"id":"python3Default","name":"Default","path":"https://veehz.github.io/py-slang/pyodide-evaluator-3.cjs","capabilities":[]}]},{"id":"python4","name":"Python 4","evaluators":[{"id":"python4Default","name":"Default","path":"https://veehz.github.io/py-slang/pyodide-evaluator-4.cjs","capabilities":[]}]}]
+[
+  {
+    "id": "source1",
+    "name": "Source 1",
+    "evaluators": [
+      {
+        "id": "source1Default",
+        "name": "Default",
+        "path": "https://source-academy.github.io/js-slang-lean/evaluator1.js",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "source2",
+    "name": "Source 2",
+    "evaluators": [
+      {
+        "id": "source2Default",
+        "name": "Default",
+        "path": "https://source-academy.github.io/js-slang-lean/evaluator2.js",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "source3",
+    "name": "Source 3",
+    "evaluators": [
+      {
+        "id": "source3Default",
+        "name": "Default",
+        "path": "https://source-academy.github.io/js-slang-lean/evaluator3.js",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "source4",
+    "name": "Source 4",
+    "evaluators": [
+      {
+        "id": "source4Default",
+        "name": "Default",
+        "path": "https://source-academy.github.io/js-slang-lean/evaluator4.js",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "pythonFull",
+    "name": "Python Full",
+    "evaluators": [
+      {
+        "id": "pythonFullDefault",
+        "name": "Default",
+        "path": "https://veehz.github.io/py-slang/pyodide-evaluator-full.cjs",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "python1",
+    "name": "Python 1",
+    "evaluators": [
+      {
+        "id": "python1Default",
+        "name": "Default",
+        "path": "https://veehz.github.io/py-slang/pyodide-evaluator-1.cjs",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "python2",
+    "name": "Python 2",
+    "evaluators": [
+      {
+        "id": "python2Default",
+        "name": "Default",
+        "path": "https://veehz.github.io/py-slang/pyodide-evaluator-2.cjs",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "python3",
+    "name": "Python 3",
+    "evaluators": [
+      {
+        "id": "python3Default",
+        "name": "Default",
+        "path": "https://veehz.github.io/py-slang/pyodide-evaluator-3.cjs",
+        "capabilities": []
+      }
+    ]
+  },
+  {
+    "id": "python4",
+    "name": "Python 4",
+    "evaluators": [
+      {
+        "id": "python4Default",
+        "name": "Default",
+        "path": "https://veehz.github.io/py-slang/pyodide-evaluator-4.cjs",
+        "capabilities": []
+      }
+    ]
+  }
+]
