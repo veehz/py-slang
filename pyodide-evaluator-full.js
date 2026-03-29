@@ -27571,11 +27571,6 @@ def _sa_analyze_imports(source):
 	                    this.conductor.sendOutput(output);
 	                },
 	            });
-	            await pyodide.setStderr({
-	                batched: (output) => {
-	                    this.conductor.sendError(new o$1(output));
-	                },
-	            });
 	            return pyodide;
 	        });
 	    }
@@ -27610,7 +27605,7 @@ if missing:
 	        // --- Execute the (possibly rewritten) code ---
 	        try {
 	            const output = await pyodide.runPythonAsync(code);
-	            this.conductor.sendOutput(output);
+	            this.conductor.sendResult(output);
 	        }
 	        catch (err) {
 	            const message = err instanceof Error ? err.message : String(err);
