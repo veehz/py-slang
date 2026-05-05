@@ -1643,6 +1643,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sourceacademy/torch@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@sourceacademy/torch@npm:0.1.0"
+  checksum: 10c0/bc6408d374a23080d3581ac06edbfd02f94215a9d2c27c38913a7b2ef99d5eadcec5f8b496dba4fac44341a216bded3412622f5b66152253373d969cdbbf7431
+  languageName: node
+  linkType: hard
+
 "@sourceacademy/wasm-util@npm:^1.0.6":
   version: 1.0.6
   resolution: "@sourceacademy/wasm-util@npm:1.0.6"
@@ -4775,6 +4782,7 @@ __metadata:
     "@rollup/plugin-typescript": "npm:^12.1.2"
     "@rollup/plugin-wasm": "npm:^6.2.2"
     "@sourceacademy/conductor": "npm:^0.3.0"
+    "@sourceacademy/torch": "npm:^0.1.0"
     "@sourceacademy/wasm-util": "npm:^1.0.6"
     "@types/fast-levenshtein": "npm:^0.0.4"
     "@types/jest": "npm:^29.5.14"
@@ -4794,7 +4802,6 @@ __metadata:
     pyodide: "npm:^0.29.3"
     rollup: "npm:^4.59.0"
     rollup-plugin-polyfill-node: "npm:^0.13.0"
-    torch: "https://pkg.pr.new/veehz/torch@687fc81"
     ts-jest: "npm:^29.0.5"
     tslib: "npm:^2.8.1"
     tsx: "npm:^4.19.0"
@@ -5339,13 +5346,6 @@ __metadata:
   dependencies:
     is-number: "npm:^7.0.0"
   checksum: 10c0/487988b0a19c654ff3e1961b87f471702e708fa8a8dd02a298ef16da7206692e8552a0250e8b3e8759270f62e9d8314616f6da274734d3b558b1fc7b7724e892
-  languageName: node
-  linkType: hard
-
-"torch@https://pkg.pr.new/veehz/torch@687fc81":
-  version: 0.1.0
-  resolution: "torch@https://pkg.pr.new/veehz/torch@687fc81"
-  checksum: 10c0/84fd0d0fae8f5e67dccfa01d429755ef5db147340544f697a14ce32332a31b5515b84aa47ac849c327f1026c8c4ff29a7af3c60bd5c1db541f49ddfa9f529185
   languageName: node
   linkType: hard
 

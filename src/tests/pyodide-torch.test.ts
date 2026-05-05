@@ -8,7 +8,7 @@
 
 import { loadPyodide } from "pyodide";
 import type { PyodideInterface } from "pyodide";
-import * as torch from "torch";
+import * as torch from "@sourceacademy/torch";
 import bridgeCode from "../pyodide/bridge.py";
 import { rewriteTorchImports, resetHelperState } from "../pyodide/importAnalyzer";
 

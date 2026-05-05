@@ -1,5 +1,5 @@
 import type { PyodideInterface } from "pyodide";
-import * as torch from "torch";
+import * as torch from "@sourceacademy/torch";
 import bridgeCode from "./bridge.py";
 
 /**
