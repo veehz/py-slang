@@ -1,5 +1,5 @@
-import { Token } from "../tokenizer/tokenizer";
-import { TokenType } from "../tokens";
+import { FunctionParam } from "../ast-types";
+import { Token, TokenType } from "../tokenizer/tokenizer";
 
 const MOO_TO_TOKEN_TYPE: Record<string, TokenType> = {
   name: TokenType.NAME,
@@ -80,4 +80,17 @@ export function toAstToken(mooToken: {
   const startCol = mooToken.col ?? 1;
   const endCol = startCol + value.length;
   return new Token(type, value, mooToken.line ?? 0, endCol, mooToken.offset ?? 0);
+}
+
+export function toFunctionParam(
+  mooToken: {
+    type?: string;
+    value?: string;
+    line?: number;
+    col?: number;
+    offset?: number;
+  },
+  isStarred: boolean,
+): FunctionParam {
+  return Object.assign(toAstToken(mooToken), { isStarred });
 }

@@ -84,3 +84,37 @@ export class ChapterPyodideEvaluator extends PyodideEvaluator {
     analyze(ast, script, this.chapter);
   }
 }
+
+export class PyodideEvaluator1 extends ChapterPyodideEvaluator {
+  constructor(conductor: IRunnerPlugin) {
+    super(conductor, 1);
+  }
+}
+
+export class PyodideEvaluator2 extends ChapterPyodideEvaluator {
+  constructor(conductor: IRunnerPlugin) {
+    super(conductor, 2);
+  }
+}
+
+export class PyodideEvaluator3 extends ChapterPyodideEvaluator {
+  constructor(conductor: IRunnerPlugin) {
+    super(conductor, 3);
+  }
+}
+
+export class PyodideEvaluator4 extends ChapterPyodideEvaluator {
+  constructor(conductor: IRunnerPlugin) {
+    super(conductor, 4);
+  }
+}
+
+export class PyodideEvaluatorFull extends PyodideEvaluator {
+  constructor(conductor: IRunnerPlugin) {
+    super(conductor);
+  }
+
+  protected validateChunk(_chunk: string): void {
+    // No-op validation
+  }
+}
